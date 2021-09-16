@@ -211,6 +211,8 @@ async function handleEvent(event) {
 
   console.log(CITY_ID);
 
+  console.log(!CITY_ID);
+
   if (!CITY_ID) {
     return client.replyMessage(event.replyToken, {
       type: 'text',
