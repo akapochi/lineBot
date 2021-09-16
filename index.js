@@ -66,7 +66,7 @@ async function handleEvent(event) {
   const CITY_ID = `130010`; // 取得したい地域のIDを指定
   const URL = `https://weather.tsukumijima.net/api/forecast?city=${CITY_ID}`;
   const res = await axios.get(URL);
-  const pushText = res.data.description.text;
+  const pushText = res.data.description.bodyText;
   return client.pushMessage(event.source.userId, {
     type: 'text',
     text: pushText,
