@@ -3,6 +3,8 @@
 const line = require('@line/bot-sdk');
 const express = require('express');
 
+const axios = require('axios');
+
 // create LINE SDK config from env variables
 const config = {
   channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
@@ -29,17 +31,46 @@ app.post('/webhook', line.middleware(config), (req, res) => {
 });
 
 // event handler
-function handleEvent(event) {
+async function handleEvent(event) {
+  // if (event.type !== 'message' || event.message.type !== 'text') {
+  //   // ignore non-text-message event
+  //   return Promise.resolve(null);
+  // }
+
+  // // create a echoing text message
+  // const echo = { type: 'text', text: `「${event.message.text}」というメッセージを受け取りました` };
+
+  // // use reply API
+  // return client.replyMessage(event.replyToken, echo);
+
   if (event.type !== 'message' || event.message.type !== 'text') {
-    // ignore non-text-message event
     return Promise.resolve(null);
   }
 
-  // create a echoing text message
-  const echo = { type: 'text', text: `「${event.message.text}」というメッセージを受け取りました` };
+  //"天気教えて"以外の場合は反応しない
+  if (event.message.text !== '天気教えて') {
+    return client.replyMessage(event.replyToken, {
+      type: 'text',
+      text: '"天気教えて"と言ってね'
+    });
+  }
 
-  // use reply API
-  return client.replyMessage(event.replyToken, echo);
+  let replyText = '';
+  replyText = 'ちょっと待ってね'; //"ちょっと待ってね"ってメッセージだけ先に処理
+  await client.replyMessage(event.replyToken, {
+    type: 'text',
+    text: replyText
+  });
+
+  //axiosを使って天気APIにアクセス
+  const CITY_ID = `400040`; //取得したい地域のIDを指定
+  const URL = `https://weather.tsukumijima.net/api/forecast?city=${CITY_ID}`;
+  const res = await axios.get(URL);
+  const pushText = res.data.description.text;
+  return client.pushMessage(event.source.userId, {
+    type: 'text',
+    text: pushText,
+  });
 }
 
 // listen on port
