@@ -211,11 +211,12 @@ async function handleEvent(event) {
   console.log(!CITY_ID);
 
   if (!CITY_ID) {
-    return client.replyMessage(event.replyToken, {
+    return client.pushMessage(event.source.userId, {
       type: 'text',
       text: '「 地名 + の天気」と言ってね'
     });
   }
+
   // axiosを使って天気APIにアクセス
 
   // const CITY_ID = `130010`; // 取得したい地域のIDを指定
