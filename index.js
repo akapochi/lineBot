@@ -210,6 +210,7 @@ async function handleEvent(event) {
   const CITY_ID = cityIds[cityName];
 
   if (!CITY_ID) {
+    return CITY_ID;
     return client.replyMessage(event.replyToken, {
       type: 'text',
       text: '「 地名 + の天気」と言ってね'
