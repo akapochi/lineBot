@@ -209,14 +209,16 @@ async function handleEvent(event) {
   }
   const CITY_ID = cityIds[cityName];
 
+  console.log(CITY_ID);
+
   if (!CITY_ID) {
-    return CITY_ID;
     return client.replyMessage(event.replyToken, {
       type: 'text',
       text: '「 地名 + の天気」と言ってね'
     });
   } else {
     // axiosを使って天気APIにアクセス
+
     // const CITY_ID = `130010`; // 取得したい地域のIDを指定
     const URL = `https://weather.tsukumijima.net/api/forecast?city=${CITY_ID}`;
     const res = await axios.get(URL);
