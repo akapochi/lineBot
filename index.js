@@ -213,7 +213,7 @@ async function handleEvent(event) {
   if (!CITY_ID) {
     return client.pushMessage(event.source.userId, {
       type: 'text',
-      text: '「 地名 + の天気」と言ってね'
+      text: '地名 + 「の天気」と言ってね'
     });
   }
 
