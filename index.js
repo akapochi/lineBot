@@ -37,28 +37,6 @@ async function handleEvent(event) {
     return Promise.resolve(null);
   }
 
-  // // create a echoing text message
-  // const echo = { type: 'text', text: `「${event.message.text}」というメッセージを受け取りました` };
-
-  // // use reply API
-  // return client.replyMessage(event.replyToken, echo);
-
-
-  // 「天気教えて」以外の場合は反応しない
-  // if (event.message.text !== '天気教えて') {
-  //   return client.replyMessage(event.replyToken, {
-  //     type: 'text',
-  //     text: '「天気教えて」と言ってね'
-  //   });
-  // }
-
-  let replyText = '';
-  replyText = 'ちょっと待ってね'; //「ちょっと待ってね」ってメッセージだけ先に処理
-  await client.replyMessage(event.replyToken, {
-    type: 'text',
-    text: replyText
-  });
-
   const cityName = event.message.text.replace("の天気", "");
   const cityIds = {
     "稚内": "011000",
@@ -206,16 +184,35 @@ async function handleEvent(event) {
   }
   const CITY_ID = cityIds[cityName];
 
-  console.log(CITY_ID);
-
-  console.log(!CITY_ID);
-
   if (!CITY_ID) {
-    return client.pushMessage(event.source.userId, {
+    return client.replyMessage(event.replyToken, {
       type: 'text',
       text: '地名 + 「の天気」と言ってね'
     });
   }
+
+  // // create a echoing text message
+  // const echo = { type: 'text', text: `「${event.message.text}」というメッセージを受け取りました` };
+
+  // // use reply API
+  // return client.replyMessage(event.replyToken, echo);
+
+
+  // 「天気教えて」以外の場合は反応しない
+  // if (event.message.text !== '天気教えて') {
+  //   return client.replyMessage(event.replyToken, {
+  //     type: 'text',
+  //     text: '「天気教えて」と言ってね'
+  //   });
+  // }
+
+  let replyText = '';
+  replyText = 'ちょっと待ってね'; //「ちょっと待ってね」ってメッセージだけ先に処理
+  await client.replyMessage(event.replyToken, {
+    type: 'text',
+    text: replyText
+  });
+
 
   // axiosを使って天気APIにアクセス
 
