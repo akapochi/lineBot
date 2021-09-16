@@ -47,23 +47,23 @@ async function handleEvent(event) {
     return Promise.resolve(null);
   }
 
-  //"天気教えて"以外の場合は反応しない
+  // 「天気教えて」以外の場合は反応しない
   if (event.message.text !== '天気教えて') {
     return client.replyMessage(event.replyToken, {
       type: 'text',
-      text: '"天気教えて"と言ってね'
+      text: '「天気教えて」と言ってね'
     });
   }
 
   let replyText = '';
-  replyText = 'ちょっと待ってね'; //"ちょっと待ってね"ってメッセージだけ先に処理
+  replyText = 'ちょっと待ってね'; //「ちょっと待ってね」ってメッセージだけ先に処理
   await client.replyMessage(event.replyToken, {
     type: 'text',
     text: replyText
   });
 
-  //axiosを使って天気APIにアクセス
-  const CITY_ID = `400040`; //取得したい地域のIDを指定
+  // axiosを使って天気APIにアクセス
+  const CITY_ID = `130010`; // 取得したい地域のIDを指定
   const URL = `https://weather.tsukumijima.net/api/forecast?city=${CITY_ID}`;
   const res = await axios.get(URL);
   const pushText = res.data.description.text;
