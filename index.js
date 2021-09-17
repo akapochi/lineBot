@@ -32,13 +32,8 @@ app.post("/webhook", line.middleware(config), (req, res) => {
 
 // event handler
 async function handleEvent(event) {
-  // if (event.type !== "message" || event.message.type !== "text") {
-  //   // ignore non-text-message event
-  //   return Promise.resolve(null);
-  // }
-
   if (event.type === "message") {
-    client.replyMessage(event.replyToken, {
+    return client.replyMessage(event.replyToken, {
       "type": "text",
       "text": "地方を選んでね",
       "quickReply": {
@@ -119,11 +114,7 @@ async function handleEvent(event) {
       }
     }
     )
-
-    return;
   } else if (event.type === "postback") {
-    console.log(event.postback.data);
-
     const w_data = event.postback.data.split("&")[0].replace("data=", ""); // 質問の内容を一時格納
     const w_item = event.postback.data.split("&")[1].replace("item=", ""); // 回答を一時格納
 
@@ -380,16 +371,6 @@ async function handleEvent(event) {
         text: pushText,
       });
     }
-  }
-
-  return;
-
-
-  if (!CITY_ID) {
-    return client.replyMessage(event.replyToken, {
-      type: "text",
-      text: "地名 + 「の天気」と言ってね"
-    });
   }
 }
 
