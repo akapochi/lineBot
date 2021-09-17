@@ -37,87 +37,91 @@ async function handleEvent(event) {
     return Promise.resolve(null);
   }
 
-  return client.replyMessage(event.replyToken, {
+  client.replyMessage(event.replyToken, {
     "type": "text",
     "text": "地方を選んでね",
     "quickReply": {
       "items": [
         {
           "type": "action",
-          "imageUrl": "",
           "action": {
-            "type": "message",
+            "type": "postback",
             "label": "北海道",
-            "text": "北海道を選択しました"
+            "data": "data=survey1&item=北海道",
+            "displayText": "北海道"
           }
         },
         {
           "type": "action",
-          "imageUrl": "",
           "action": {
-            "type": "message",
+            "type": "postback",
             "label": "東北",
-            "text": "東北"
+            "data": "data=survey1&item=東北",
+            "displayText": "東北"
           }
         },
         {
           "type": "action",
-          "imageUrl": "",
           "action": {
-            "type": "message",
+            "type": "postback",
             "label": "関東",
-            "text": "関東"
+            "data": "data=survey1&item=関東",
+            "displayText": "関東"
           }
         },
         {
           "type": "action",
-          "imageUrl": "",
           "action": {
-            "type": "message",
+            "type": "postback",
             "label": "中部",
-            "text": "中部"
+            "data": "data=survey1&item=中部",
+            "displayText": "中部"
           }
         },
         {
           "type": "action",
-          "imageUrl": "",
           "action": {
-            "type": "message",
+            "type": "postback",
             "label": "近畿",
-            "text": "近畿"
+            "data": "data=survey1&item=近畿",
+            "displayText": "近畿"
           }
         },
         {
           "type": "action",
-          "imageUrl": "",
           "action": {
-            "type": "message",
+            "type": "postback",
             "label": "中国",
-            "text": "中国"
+            "data": "data=survey1&item=中国",
+            "displayText": "中国"
           }
         },
         {
           "type": "action",
-          "imageUrl": "",
           "action": {
-            "type": "message",
+            "type": "postback",
             "label": "四国",
-            "text": "四国"
+            "data": "data=survey1&item=四国",
+            "displayText": "四国"
           }
         },
         {
           "type": "action",
-          "imageUrl": "",
           "action": {
-            "type": "message",
+            "type": "postback",
             "label": "九州",
-            "text": "九州"
+            "data": "data=survey1&item=九州",
+            "displayText": "九州"
           }
         },
       ]
     }
   }
   )
+
+  console.log(event.postback.data);
+
+  return;
 
   const cityName = event.message.text.replace("の天気", "");
   const cityIds = {
