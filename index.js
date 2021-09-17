@@ -122,7 +122,7 @@ async function handleEvent(event) {
 
     return;
   } else if (event.type === "postback") {
-    console.log(event.quickReply.data);
+    console.log(event.postback.data);
   }
 
   return;
