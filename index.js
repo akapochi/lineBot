@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
-const line = require('@line/bot-sdk');
-const express = require('express');
+const line = require("@line/bot-sdk");
+const express = require("express");
 
-const axios = require('axios');
+const axios = require("axios");
 
 // create LINE SDK config from env variables
 const config = {
@@ -20,7 +20,7 @@ const app = express();
 
 // register a webhook handler with middleware
 // about the middleware, please refer to doc
-app.post('/webhook', line.middleware(config), (req, res) => {
+app.post("/webhook", line.middleware(config), (req, res) => {
   Promise
     .all(req.body.events.map(handleEvent))
     .then((result) => res.json(result))
@@ -32,10 +32,92 @@ app.post('/webhook', line.middleware(config), (req, res) => {
 
 // event handler
 async function handleEvent(event) {
-  if (event.type !== 'message' || event.message.type !== 'text') {
+  if (event.type !== "message" || event.message.type !== "text") {
     // ignore non-text-message event
     return Promise.resolve(null);
   }
+
+  return client.replyMessage(event.replyToken, {
+    "type": "text",
+    "text": "地方を選んでね",
+    "quickReply": {
+      "items": [
+        {
+          "type": "action",
+          "imageUrl": "",
+          "action": {
+            "type": "message",
+            "label": "北海道",
+            "text": "北海道"
+          }
+        },
+        {
+          "type": "action",
+          "imageUrl": "",
+          "action": {
+            "type": "message",
+            "label": "東北",
+            "text": "東北"
+          }
+        },
+        {
+          "type": "action",
+          "imageUrl": "",
+          "action": {
+            "type": "message",
+            "label": "関東",
+            "text": "関東"
+          }
+        },
+        {
+          "type": "action",
+          "imageUrl": "",
+          "action": {
+            "type": "message",
+            "label": "中部",
+            "text": "中部"
+          }
+        },
+        {
+          "type": "action",
+          "imageUrl": "",
+          "action": {
+            "type": "message",
+            "label": "近畿",
+            "text": "近畿"
+          }
+        },
+        {
+          "type": "action",
+          "imageUrl": "",
+          "action": {
+            "type": "message",
+            "label": "中国",
+            "text": "中国"
+          }
+        },
+        {
+          "type": "action",
+          "imageUrl": "",
+          "action": {
+            "type": "message",
+            "label": "四国",
+            "text": "四国"
+          }
+        },
+        {
+          "type": "action",
+          "imageUrl": "",
+          "action": {
+            "type": "message",
+            "label": "九州",
+            "text": "九州"
+          }
+        },
+      ]
+    }
+  }
+  )
 
   const cityName = event.message.text.replace("の天気", "");
   const cityIds = {
@@ -186,15 +268,15 @@ async function handleEvent(event) {
 
   if (!CITY_ID) {
     return client.replyMessage(event.replyToken, {
-      type: 'text',
-      text: '地名 + 「の天気」と言ってね'
+      type: "text",
+      text: "地名 + 「の天気」と言ってね"
     });
   }
 
-  let replyText = '';
-  replyText = 'ちょっと待ってね'; //「ちょっと待ってね」ってメッセージだけ先に処理
+  let replyText = "";
+  replyText = "ちょっと待ってね"; //「ちょっと待ってね」ってメッセージだけ先に処理
   await client.replyMessage(event.replyToken, {
-    type: 'text',
+    type: "text",
     text: replyText
   });
 
@@ -205,7 +287,7 @@ async function handleEvent(event) {
   const res = await axios.get(URL);
   const pushText = res.data.description.bodyText;
   return client.pushMessage(event.source.userId, {
-    type: 'text',
+    type: "text",
     text: pushText,
   });
 
