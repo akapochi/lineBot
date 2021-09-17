@@ -123,6 +123,97 @@ async function handleEvent(event) {
     return;
   } else if (event.type === "postback") {
     console.log(event.postback.data);
+
+    const w_data = event.postback.data.split("&")[0].replace("data=", ""); // 質問の内容を一時格納
+    const w_item = event.postback.data.split("&")[1].replace("item=", ""); // 回答を一時格納
+
+    if (w_data === "survey1") {
+      if (w_item === "北海道") {
+        client.replyMessage(event.replyToken, {
+          "type": "text",
+          "text": "地名を選んでね",
+          "quickReply": {
+            "items": [
+              {
+                "type": "action",
+                "action": {
+                  "type": "postback",
+                  "label": "稚内",
+                  "data": "data=survey2&item=稚内",
+                  "displayText": "稚内"
+                }
+              },
+              {
+                "type": "action",
+                "action": {
+                  "type": "postback",
+                  "label": "旭川",
+                  "data": "data=survey2&item=旭川",
+                  "displayText": "旭川"
+                }
+              },
+              {
+                "type": "action",
+                "action": {
+                  "type": "postback",
+                  "label": "留萌",
+                  "data": "data=survey2&item=留萌",
+                  "displayText": "留萌"
+                }
+              },
+              {
+                "type": "action",
+                "action": {
+                  "type": "postback",
+                  "label": "網走",
+                  "data": "data=survey2&item=網走",
+                  "displayText": "網走"
+                }
+              },
+              {
+                "type": "action",
+                "action": {
+                  "type": "postback",
+                  "label": "北見",
+                  "data": "data=survey2&item=北見",
+                  "displayText": "北見"
+                }
+              },
+              {
+                "type": "action",
+                "action": {
+                  "type": "postback",
+                  "label": "紋別",
+                  "data": "data=survey2&item=紋別",
+                  "displayText": "紋別"
+                }
+              },
+              {
+                "type": "action",
+                "action": {
+                  "type": "postback",
+                  "label": "根室",
+                  "data": "data=survey2&item=根室",
+                  "displayText": "根室"
+                }
+              },
+              {
+                "type": "action",
+                "action": {
+                  "type": "postback",
+                  "label": "釧路",
+                  "data": "data=survey2&item=釧路",
+                  "displayText": "釧路"
+                }
+              },
+            ]
+          }
+        }
+        )
+      } else if (w_item === "東北") {
+
+      }
+    }
   }
 
   return;
