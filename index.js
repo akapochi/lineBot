@@ -37,7 +37,7 @@ async function handleEvent(event) {
   //   return Promise.resolve(null);
   // }
 
-  if (event.type === "postback") {
+  if (event.type === "message") {
     client.replyMessage(event.replyToken, {
       "type": "text",
       "text": "地方を選んでね",
@@ -120,10 +120,12 @@ async function handleEvent(event) {
     }
     )
 
-    console.log(event.quickReply.data);
-
     return;
+  } else if (event.type === "postback") {
+    console.log(event.quickReply.data);
   }
+
+  return;
 
 
   const cityName = event.message.text.replace("の天気", "");
