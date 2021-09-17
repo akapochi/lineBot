@@ -48,7 +48,7 @@ async function handleEvent(event) {
           "action": {
             "type": "message",
             "label": "北海道",
-            "text": "北海道"
+            "text": "北海道を選択しました"
           }
         },
         {
