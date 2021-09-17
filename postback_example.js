@@ -1,6 +1,6 @@
 // 固定値
 let channel_token = "****************************************"
-let url = "https:// api.line.me/v2/bot/message/reply"
+let url = "https://api.line.me/v2/bot/message/reply"
 let spreadsheet = SpreadsheetApp.openById("****************************************");
 let sheet_userlist = spreadsheet.getSheetByName('userlist');
 
@@ -16,7 +16,7 @@ function doPost(e) {
 
     // ユーザーIDとユーザー名を取得
     let userId = event.source.userId;
-    let json = UrlFetchApp.fetch("https:// api.line.me/v2/bot/profile/" + userId, { "headers": { "Authorization": "Bearer " + channel_token } });
+    let json = UrlFetchApp.fetch("https://api.line.me/v2/bot/profile/" + userId, { "headers": { "Authorization": "Bearer " + channel_token } });
     let displayName = JSON.parse(json).displayName;
 
     // スプレッドシートに書き込む
@@ -79,7 +79,7 @@ function survey_demogra() {
 }
 
 function push_survey(userId) {
-  let url = "https:// api.line.me/v2/bot/message/push";
+  let url = "https://api.line.me/v2/bot/message/push";
   let headers = {
     "Content-Type": "application/json; charset=UTF-8",
     'Authorization': 'Bearer ' + channel_token,

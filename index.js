@@ -119,7 +119,7 @@ async function handleEvent(event) {
   }
   )
 
-  console.log(event.postback.data);
+  console.log(event.quickReply.data);
 
   return;
 
