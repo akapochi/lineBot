@@ -430,7 +430,6 @@ async function handleEvent(event) {
 
 
     if (w_data === "survey1") {
-      const w_item = event.postback.data.split("&")[2].replace("item=", ""); // 地名を一時格納（数字）
       if (w_area === "0") {
         client.replyMessage(event.replyToken, {
           "type": "text",
@@ -517,6 +516,7 @@ async function handleEvent(event) {
 
       }
     } else if (w_data === "survey2") {
+      const w_item = event.postback.data.split("&")[2].replace("item=", ""); // 地名を一時格納（数字）
       let replyText = "";
       replyText = "ちょっと待ってね"; //「ちょっと待ってね」ってメッセージだけ先に処理
       await client.replyMessage(event.replyToken, {
