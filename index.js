@@ -43,7 +43,7 @@ async function handleEvent(event) {
             "action": {
               "type": "postback",
               "label": "北海道",
-              "data": "data=survey1&item=0",
+              "data": "data=survey1&item=北海道",
               "displayText": "北海道"
             }
           },
@@ -52,7 +52,7 @@ async function handleEvent(event) {
             "action": {
               "type": "postback",
               "label": "東北",
-              "data": "data=survey1&item=1",
+              "data": "data=survey1&item=東北",
               "displayText": "東北"
             }
           },
@@ -61,7 +61,7 @@ async function handleEvent(event) {
             "action": {
               "type": "postback",
               "label": "関東",
-              "data": "data=survey1&item=2",
+              "data": "data=survey1&item=関東",
               "displayText": "関東"
             }
           },
@@ -70,7 +70,7 @@ async function handleEvent(event) {
             "action": {
               "type": "postback",
               "label": "中部",
-              "data": "data=survey1&item=3",
+              "data": "data=survey1&item=中部",
               "displayText": "中部"
             }
           },
@@ -79,7 +79,7 @@ async function handleEvent(event) {
             "action": {
               "type": "postback",
               "label": "近畿",
-              "data": "data=survey1&item=4",
+              "data": "data=survey1&item=近畿",
               "displayText": "近畿"
             }
           },
@@ -88,7 +88,7 @@ async function handleEvent(event) {
             "action": {
               "type": "postback",
               "label": "中国",
-              "data": "data=survey1&item=5",
+              "data": "data=survey1&item=中国",
               "displayText": "中国"
             }
           },
@@ -97,7 +97,7 @@ async function handleEvent(event) {
             "action": {
               "type": "postback",
               "label": "四国",
-              "data": "data=survey1&item=6",
+              "data": "data=survey1&item=四国",
               "displayText": "四国"
             }
           },
@@ -106,7 +106,7 @@ async function handleEvent(event) {
             "action": {
               "type": "postback",
               "label": "九州",
-              "data": "data=survey1&item=7",
+              "data": "data=survey1&item=九州",
               "displayText": "九州"
             }
           },
@@ -428,96 +428,92 @@ async function handleEvent(event) {
 
 
     if (w_data === "survey1") {
-      if (w_area === "0") {
-        client.replyMessage(event.replyToken, {
-          "type": "text",
-          "text": "地名を選んでね",
-          "quickReply": {
-            "items": [
-              {
-                "type": "action",
-                "action": {
-                  "type": "postback",
-                  "label": `${cityIds2["北海道"][0]["name"]}`,
-                  "data": "data=survey2&area=0&item=0",
-                  "displayText": `${cityIds2["北海道"][0]["name"]}`
-                }
-              },
-              {
-                "type": "action",
-                "action": {
-                  "type": "postback",
-                  "label": `${cityIds2["北海道"][1]["name"]}`,
-                  "data": "data=survey2&area=0&item=1",
-                  "displayText": `${cityIds2["北海道"][1]["name"]}`
-                }
-              },
-              {
-                "type": "action",
-                "action": {
-                  "type": "postback",
-                  "label": `${cityIds2["北海道"][2]["name"]}`,
-                  "data": "data=survey2&area=0&item=2",
-                  "displayText": `${cityIds2["北海道"][2]["name"]}`
-                }
-              },
-              {
-                "type": "action",
-                "action": {
-                  "type": "postback",
-                  "label": `${cityIds2["北海道"][3]["name"]}`,
-                  "data": "data=survey2&area=0&item=3",
-                  "displayText": `${cityIds2["北海道"][3]["name"]}`
-                }
-              },
-              {
-                "type": "action",
-                "action": {
-                  "type": "postback",
-                  "label": `${cityIds2["北海道"][4]["name"]}`,
-                  "data": "data=survey2&area=0&item=4",
-                  "displayText": `${cityIds2["北海道"][4]["name"]}`
-                }
-              },
-              {
-                "type": "action",
-                "action": {
-                  "type": "postback",
-                  "label": `${cityIds2["北海道"][5]["name"]}`,
-                  "data": "data=survey2&area=0&item=5",
-                  "displayText": `${cityIds2["北海道"][5]["name"]}`
-                }
-              },
-              {
-                "type": "action",
-                "action": {
-                  "type": "postback",
-                  "label": `${cityIds2["北海道"][6]["name"]}`,
-                  "data": "data=survey2&area=0&item=6",
-                  "displayText": `${cityIds2["北海道"][6]["name"]}`
-                }
-              },
-              {
-                "type": "action",
-                "action": {
-                  "type": "postback",
-                  "label": `${cityIds2["北海道"][7]["name"]}`,
-                  "data": "data=survey2&area=0&item=7",
-                  "displayText": `${cityIds2["北海道"][7]["name"]}`
-                }
-              },
-            ]
-          }
+      client.replyMessage(event.replyToken, {
+        "type": "text",
+        "text": "地名を選んでね",
+        "quickReply": {
+          "items": [
+            {
+              "type": "action",
+              "action": {
+                "type": "postback",
+                "label": `${cityIds2[w_area][0]["name"]}`,
+                "data": "data=survey2&area=0&item=0",
+                "displayText": `${cityIds2[w_area][0]["name"]}`
+              }
+            },
+            {
+              "type": "action",
+              "action": {
+                "type": "postback",
+                "label": `${cityIds2[w_area][1]["name"]}`,
+                "data": "data=survey2&area=0&item=1",
+                "displayText": `${cityIds2[w_area][1]["name"]}`
+              }
+            },
+            {
+              "type": "action",
+              "action": {
+                "type": "postback",
+                "label": `${cityIds2[w_area][2]["name"]}`,
+                "data": "data=survey2&area=0&item=2",
+                "displayText": `${cityIds2[w_area][2]["name"]}`
+              }
+            },
+            {
+              "type": "action",
+              "action": {
+                "type": "postback",
+                "label": `${cityIds2[w_area][3]["name"]}`,
+                "data": "data=survey2&area=0&item=3",
+                "displayText": `${cityIds2[w_area][3]["name"]}`
+              }
+            },
+            {
+              "type": "action",
+              "action": {
+                "type": "postback",
+                "label": `${cityIds2[w_area][4]["name"]}`,
+                "data": "data=survey2&area=0&item=4",
+                "displayText": `${cityIds2[w_area][4]["name"]}`
+              }
+            },
+            {
+              "type": "action",
+              "action": {
+                "type": "postback",
+                "label": `${cityIds2[w_area][5]["name"]}`,
+                "data": "data=survey2&area=0&item=5",
+                "displayText": `${cityIds2[w_area][5]["name"]}`
+              }
+            },
+            {
+              "type": "action",
+              "action": {
+                "type": "postback",
+                "label": `${cityIds2[w_area][6]["name"]}`,
+                "data": "data=survey2&area=0&item=6",
+                "displayText": `${cityIds2[w_area][6]["name"]}`
+              }
+            },
+            {
+              "type": "action",
+              "action": {
+                "type": "postback",
+                "label": `${cityIds2[w_area][7]["name"]}`,
+                "data": "data=survey2&area=0&item=7",
+                "displayText": `${cityIds2[w_area][7]["name"]}`
+              }
+            },
+          ]
         }
-        )
-      } else if (w_area === "1") {
-
       }
+      )
     } else if (w_data === "survey2") {
       const w_item = event.postback.data.split("&")[2].replace("item=", ""); // 地名を一時格納（数字）
 
       const cityIndex = parseInt(w_item);
-      const CITY_ID = cityIds2["北海道"][cityIndex]["id"];
+      const CITY_ID = cityIds2[w_area][cityIndex]["id"];
 
 
       let replyText = "";
