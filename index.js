@@ -505,6 +505,52 @@ async function handleEvent(event) {
                 "displayText": `${cityIds2[w_area][7]["name"]}`
               }
             },
+            {
+              "type": "action",
+              "action": {
+                "type": "postback",
+                "label": `${cityIds2[w_area][8]["name"]}`,
+                "data": `data=survey2&area=${w_area}&item=8`,
+                "displayText": `${cityIds2[w_area][8]["name"]}`
+              }
+            },
+            {
+              "type": "action",
+              "action": {
+                "type": "postback",
+                "label": `${cityIds2[w_area][9]["name"]}`,
+                "data": `data=survey2&area=${w_area}&item=9`,
+                "displayText": `${cityIds2[w_area][9]["name"]}`
+              }
+            },
+            {
+              "type": "action",
+              "action": {
+                "type": "postback",
+                "label": `${cityIds2[w_area][10]["name"]}`,
+                "data": `data=survey2&area=${w_area}&item=10`,
+                "displayText": `${cityIds2[w_area][10]["name"]}`
+              }
+            },
+            {
+              "type": "action",
+              "action": {
+                "type": "postback",
+                "label": `${cityIds2[w_area][11]["name"]}`,
+                "data": `data=survey2&area=${w_area}&item=11`,
+                "displayText": `${cityIds2[w_area][11]["name"]}`
+              }
+            },
+            {
+              "type": "action",
+              "action": {
+                "type": "postback",
+                "label": `${cityIds2[w_area][12]["name"]}`,
+                "data": `data=survey2&area=${w_area}&item=12`,
+                "displayText": `${cityIds2[w_area][12]["name"]}`
+              }
+            },
+
           ]
         }
       }
