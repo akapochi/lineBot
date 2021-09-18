@@ -43,7 +43,7 @@ async function handleEvent(event) {
             "action": {
               "type": "postback",
               "label": "北海道",
-              "data": "data=survey1&item=北海道",
+              "data": "data=survey1&item=0",
               "displayText": "北海道"
             }
           },
@@ -52,7 +52,7 @@ async function handleEvent(event) {
             "action": {
               "type": "postback",
               "label": "東北",
-              "data": "data=survey1&item=東北",
+              "data": "data=survey1&item=1",
               "displayText": "東北"
             }
           },
@@ -61,7 +61,7 @@ async function handleEvent(event) {
             "action": {
               "type": "postback",
               "label": "関東",
-              "data": "data=survey1&item=関東",
+              "data": "data=survey1&item=2",
               "displayText": "関東"
             }
           },
@@ -70,7 +70,7 @@ async function handleEvent(event) {
             "action": {
               "type": "postback",
               "label": "中部",
-              "data": "data=survey1&item=中部",
+              "data": "data=survey1&item=3",
               "displayText": "中部"
             }
           },
@@ -79,7 +79,7 @@ async function handleEvent(event) {
             "action": {
               "type": "postback",
               "label": "近畿",
-              "data": "data=survey1&item=近畿",
+              "data": "data=survey1&item=4",
               "displayText": "近畿"
             }
           },
@@ -88,7 +88,7 @@ async function handleEvent(event) {
             "action": {
               "type": "postback",
               "label": "中国",
-              "data": "data=survey1&item=中国",
+              "data": "data=survey1&item=5",
               "displayText": "中国"
             }
           },
@@ -97,7 +97,7 @@ async function handleEvent(event) {
             "action": {
               "type": "postback",
               "label": "四国",
-              "data": "data=survey1&item=四国",
+              "data": "data=survey1&item=6",
               "displayText": "四国"
             }
           },
@@ -106,7 +106,7 @@ async function handleEvent(event) {
             "action": {
               "type": "postback",
               "label": "九州",
-              "data": "data=survey1&item=九州",
+              "data": "data=survey1&item=7",
               "displayText": "九州"
             }
           },
@@ -440,9 +440,9 @@ async function handleEvent(event) {
                 "type": "action",
                 "action": {
                   "type": "postback",
-                  "label": `稚内`,
+                  "label": `${cityIds2["北海道"][0]}`,
                   "data": "data=survey2&area=0&item=0",
-                  "displayText": `稚内`
+                  "displayText": `${cityIds2["北海道"][0]}`
                 }
               },
               {
