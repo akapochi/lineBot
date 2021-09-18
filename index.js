@@ -87,18 +87,9 @@ async function handleEvent(event) {
             "type": "action",
             "action": {
               "type": "postback",
-              "label": "中国",
+              "label": "中国・四国",
               "data": "data=survey1&area=中国",
               "displayText": "中国"
-            }
-          },
-          {
-            "type": "action",
-            "action": {
-              "type": "postback",
-              "label": "四国",
-              "data": "data=survey1&area=四国",
-              "displayText": "四国"
             }
           },
           {
@@ -108,6 +99,15 @@ async function handleEvent(event) {
               "label": "九州",
               "data": "data=survey1&area=九州",
               "displayText": "九州"
+            }
+          },
+          {
+            "type": "action",
+            "action": {
+              "type": "postback",
+              "label": "島々",
+              "data": "data=survey1&area=島々",
+              "displayText": "島々"
             }
           },
         ]
