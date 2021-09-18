@@ -116,8 +116,8 @@ async function handleEvent(event) {
     )
   } else if (event.type === "postback") {
     const w_data = event.postback.data.split("&")[0].replace("data=", ""); // 質問の種類を一時格納
-    const w_area = event.postback.data.split("&")[1].replace("area=", ""); // 地方を一時格納（数字）
-    const w_item = event.postback.data.split("&")[2].replace("item=", ""); // 地名を一時格納（数字）
+    const w_area = event.postback.data.split("&")[1].replace("item=", ""); // 地方を一時格納（数字）
+
 
     // const cityName = w_item;
     const cityIds = {
@@ -430,6 +430,7 @@ async function handleEvent(event) {
 
 
     if (w_data === "survey1") {
+      const w_item = event.postback.data.split("&")[2].replace("item=", ""); // 地名を一時格納（数字）
       if (w_area === "0") {
         client.replyMessage(event.replyToken, {
           "type": "text",
