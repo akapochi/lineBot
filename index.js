@@ -440,9 +440,9 @@ async function handleEvent(event) {
                 "type": "action",
                 "action": {
                   "type": "postback",
-                  "label": `${cityIds2[北海道][0]}`,
+                  "label": `${cityIds2["北海道"][0]}`,
                   "data": "data=survey2&area=0&item=0",
-                  "displayText": `${cityIds2[北海道][0]}`
+                  "displayText": `${cityIds2["北海道"][0]}`
                 }
               },
               {
