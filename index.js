@@ -119,7 +119,6 @@ async function handleEvent(event) {
     const w_area = event.postback.data.split("&")[1].replace("item=", ""); // 地方を一時格納（数字）
 
 
-    // const cityName = w_item;
     const cityIds = {
       "稚内": "011000", // "01"で始まるのが北海道
       "旭川": "012010",
@@ -426,7 +425,6 @@ async function handleEvent(event) {
       ]
 
     }
-    // const CITY_ID = cityIds[cityName];
 
 
     if (w_data === "survey1") {
@@ -517,6 +515,11 @@ async function handleEvent(event) {
       }
     } else if (w_data === "survey2") {
       const w_item = event.postback.data.split("&")[2].replace("item=", ""); // 地名を一時格納（数字）
+
+      const cityIndex = w_item;
+      const CITY_ID = cityIds2["北海道"][cityIndex];
+
+
       let replyText = "";
       replyText = "ちょっと待ってね"; //「ちょっと待ってね」ってメッセージだけ先に処理
       await client.replyMessage(event.replyToken, {
