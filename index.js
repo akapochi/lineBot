@@ -88,8 +88,8 @@ async function handleEvent(event) {
             "action": {
               "type": "postback",
               "label": "中国・四国",
-              "data": "data=survey1&area=中国",
-              "displayText": "中国"
+              "data": "data=survey1&area=中国・四国",
+              "displayText": "中国・四国"
             }
           },
           {
