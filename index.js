@@ -450,7 +450,7 @@ async function handleEvent(event) {
                 "action": {
                   "type": "postback",
                   "label": "旭川",
-                  "data": "data=survey2&item=旭川",
+                  "data": "data=survey2&area=0&item=1",
                   "displayText": "旭川"
                 }
               },
@@ -459,7 +459,7 @@ async function handleEvent(event) {
                 "action": {
                   "type": "postback",
                   "label": "留萌",
-                  "data": "data=survey2&item=留萌",
+                  "data": "data=survey2&area=0&item=2",
                   "displayText": "留萌"
                 }
               },
@@ -468,7 +468,7 @@ async function handleEvent(event) {
                 "action": {
                   "type": "postback",
                   "label": "網走",
-                  "data": "data=survey2&item=網走",
+                  "data": "data=survey2&area=0&item=3",
                   "displayText": "網走"
                 }
               },
@@ -477,7 +477,7 @@ async function handleEvent(event) {
                 "action": {
                   "type": "postback",
                   "label": "北見",
-                  "data": "data=survey2&item=北見",
+                  "data": "data=survey2&area=0&item=4",
                   "displayText": "北見"
                 }
               },
@@ -486,7 +486,7 @@ async function handleEvent(event) {
                 "action": {
                   "type": "postback",
                   "label": "紋別",
-                  "data": "data=survey2&item=紋別",
+                  "data": "data=survey2&area=0&item=5",
                   "displayText": "紋別"
                 }
               },
@@ -495,7 +495,7 @@ async function handleEvent(event) {
                 "action": {
                   "type": "postback",
                   "label": "根室",
-                  "data": "data=survey2&item=根室",
+                  "data": "data=survey2&area=0&item=6",
                   "displayText": "根室"
                 }
               },
@@ -504,7 +504,7 @@ async function handleEvent(event) {
                 "action": {
                   "type": "postback",
                   "label": "釧路",
-                  "data": "data=survey2&item=釧路",
+                  "data": "data=survey2&area=0&item=7",
                   "displayText": "釧路"
                 }
               },
