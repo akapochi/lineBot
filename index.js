@@ -267,22 +267,22 @@ async function handleEvent(event) {
 
     const cityIds2 = {
       "北海道": [
-        "011000",
-        "012010",
-        "012020",
-        "013010",
-        "013020",
-        "013030",
-        "014010",
-        "014020",
-        "014030",
-        "015010",
-        "015020",
-        "016010",
-        "016020",
-        "016030",
-        "017010",
-        "017020",
+        { "name": "稚内", "id": "011000" },
+        { "name": "旭川", "id": "012010" },
+        { "name": "留萌", "id": "012020" },
+        { "name": "網走", "id": "013010" },
+        { "name": "北見", "id": "013020" },
+        { "name": "紋別", "id": "013030" },
+        { "name": "根室", "id": "014010" },
+        { "name": "釧路", "id": "014020" },
+        { "name": "帯広", "id": "014030" },
+        { "name": "室蘭", "id": "015010" },
+        { "name": "浦河", "id": "015020" },
+        { "name": "札幌", "id": "016010" },
+        { "name": "岩見沢", "id": "016020" },
+        { "name": "倶知安", "id": "016030" },
+        { "name": "函館", "id": "017010" },
+        { "name": "江差", "id": "017020" },
       ],
       "東北": [
         "020010",
@@ -440,72 +440,72 @@ async function handleEvent(event) {
                 "type": "action",
                 "action": {
                   "type": "postback",
-                  "label": `${cityIds2["北海道"][0]}`,
+                  "label": `${cityIds2["北海道"][0]["name"]}`,
                   "data": "data=survey2&area=0&item=0",
-                  "displayText": `${cityIds2["北海道"][0]}`
+                  "displayText": `${cityIds2["北海道"][0]["name"]}`
                 }
               },
               {
                 "type": "action",
                 "action": {
                   "type": "postback",
-                  "label": "旭川",
+                  "label": `${cityIds2["北海道"][1]["name"]}`,
                   "data": "data=survey2&area=0&item=1",
-                  "displayText": "旭川"
+                  "displayText": `${cityIds2["北海道"][1]["name"]}`
                 }
               },
               {
                 "type": "action",
                 "action": {
                   "type": "postback",
-                  "label": "留萌",
+                  "label": `${cityIds2["北海道"][2]["name"]}`,
                   "data": "data=survey2&area=0&item=2",
-                  "displayText": "留萌"
+                  "displayText": `${cityIds2["北海道"][2]["name"]}`
                 }
               },
               {
                 "type": "action",
                 "action": {
                   "type": "postback",
-                  "label": "網走",
+                  "label": `${cityIds2["北海道"][3]["name"]}`,
                   "data": "data=survey2&area=0&item=3",
-                  "displayText": "網走"
+                  "displayText": `${cityIds2["北海道"][3]["name"]}`
                 }
               },
               {
                 "type": "action",
                 "action": {
                   "type": "postback",
-                  "label": "北見",
+                  "label": `${cityIds2["北海道"][4]["name"]}`,
                   "data": "data=survey2&area=0&item=4",
-                  "displayText": "北見"
+                  "displayText": `${cityIds2["北海道"][4]["name"]}`
                 }
               },
               {
                 "type": "action",
                 "action": {
                   "type": "postback",
-                  "label": "紋別",
+                  "label": `${cityIds2["北海道"][5]["name"]}`,
                   "data": "data=survey2&area=0&item=5",
-                  "displayText": "紋別"
+                  "displayText": `${cityIds2["北海道"][5]["name"]}`
                 }
               },
               {
                 "type": "action",
                 "action": {
                   "type": "postback",
-                  "label": "根室",
+                  "label": `${cityIds2["北海道"][6]["name"]}`,
                   "data": "data=survey2&area=0&item=6",
-                  "displayText": "根室"
+                  "displayText": `${cityIds2["北海道"][6]["name"]}`
                 }
               },
               {
                 "type": "action",
                 "action": {
                   "type": "postback",
-                  "label": "釧路",
+                  "label": `${cityIds2["北海道"][7]["name"]}`,
                   "data": "data=survey2&area=0&item=7",
-                  "displayText": "釧路"
+                  "displayText": `${cityIds2["北海道"][7]["name"]}`
                 }
               },
             ]
