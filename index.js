@@ -516,7 +516,7 @@ async function handleEvent(event) {
     } else if (w_data === "survey2") {
       const w_item = event.postback.data.split("&")[2].replace("item=", ""); // 地名を一時格納（数字）
 
-      const cityIndex = w_item;
+      const cityIndex = parseInt(w_item);
       const CITY_ID = cityIds2["北海道"][cityIndex];
 
 
