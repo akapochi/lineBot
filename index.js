@@ -517,7 +517,7 @@ async function handleEvent(event) {
       const w_item = event.postback.data.split("&")[2].replace("item=", ""); // 地名を一時格納（数字）
 
       const cityIndex = parseInt(w_item);
-      const CITY_ID = cityIds2["北海道"][cityIndex];
+      const CITY_ID = cityIds2["北海道"][cityIndex]["id"];
 
 
       let replyText = "";
