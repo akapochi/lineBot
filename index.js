@@ -455,15 +455,17 @@ async function handleEvent(event) {
 
     if (w_data === "survey1") {
       for (const cityObject of cityIds2[w_area]) {
+        const i = 1;
         cityArray.push(`{
           "type": "action",
           "action": {
             "type": "postback",
             "label": \`${cityObject["name"]}\`,
-            "data": \`data=survey2&area=${w_area}&item=0\`,
+            "data": \`data=survey2&area=${w_area}&item=\`${i}\`\`,
             "displayText": \`${cityObject["name"]}\`
           }
         }`)
+        i++;
       }
       console.log(cityArray);
 
