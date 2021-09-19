@@ -455,7 +455,7 @@ async function handleEvent(event) {
 
     if (w_data === "survey1") {
       for (const cityObject of cityIds2[w_area]) {
-        let i = 1;
+        let i = 0;
         cityArray.push(`{
           "type": "action",
           "action": {
