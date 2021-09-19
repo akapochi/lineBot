@@ -461,7 +461,7 @@ async function handleEvent(event) {
             "type": "postback",
             "label": \`${cityObject["name"]}\`,
             "data": \`data=survey2&area=${w_area}&item=0\`,
-            "displayText": \`${cityIds2[w_area][0]["name"]}\`
+            "displayText": \`${cityObject["name"]}\`
           }
         }`)
       }
