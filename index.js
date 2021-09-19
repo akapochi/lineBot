@@ -450,132 +450,26 @@ async function handleEvent(event) {
 
     }
 
+    const cityArray = [];
+
 
     if (w_data === "survey1") {
+      for (const cityObject of cityIds2[w_area]) {
+        cityArray.push(`{
+          "type": "action",
+          "action": {
+            "type": "postback",
+            "label": \`${cityObject["name"]}\`,
+            "data": \`data=survey2&area=${w_area}&item=0\`,
+            "displayText": \`${cityIds2[w_area][0]["name"]}\`
+          }
+        }`)
+      }
       client.replyMessage(event.replyToken, {
         "type": "text",
         "text": "地名を選んでね",
         "quickReply": {
-          "items": [
-            {
-              "type": "action",
-              "action": {
-                "type": "postback",
-                "label": `${cityIds2[w_area][0]["name"]}`,
-                "data": `data=survey2&area=${w_area}&item=0`,
-                "displayText": `${cityIds2[w_area][0]["name"]}`
-              }
-            },
-            {
-              "type": "action",
-              "action": {
-                "type": "postback",
-                "label": `${cityIds2[w_area][1]["name"]}`,
-                "data": `data=survey2&area=${w_area}&item=1`,
-                "displayText": `${cityIds2[w_area][1]["name"]}`
-              }
-            },
-            {
-              "type": "action",
-              "action": {
-                "type": "postback",
-                "label": `${cityIds2[w_area][2]["name"]}`,
-                "data": `data=survey2&area=${w_area}&item=2`,
-                "displayText": `${cityIds2[w_area][2]["name"]}`
-              }
-            },
-            {
-              "type": "action",
-              "action": {
-                "type": "postback",
-                "label": `${cityIds2[w_area][3]["name"]}`,
-                "data": `data=survey2&area=${w_area}&item=3`,
-                "displayText": `${cityIds2[w_area][3]["name"]}`
-              }
-            },
-            {
-              "type": "action",
-              "action": {
-                "type": "postback",
-                "label": `${cityIds2[w_area][4]["name"]}`,
-                "data": `data=survey2&area=${w_area}&item=4`,
-                "displayText": `${cityIds2[w_area][4]["name"]}`
-              }
-            },
-            {
-              "type": "action",
-              "action": {
-                "type": "postback",
-                "label": `${cityIds2[w_area][5]["name"]}`,
-                "data": `data=survey2&area=${w_area}&item=5`,
-                "displayText": `${cityIds2[w_area][5]["name"]}`
-              }
-            },
-            {
-              "type": "action",
-              "action": {
-                "type": "postback",
-                "label": `${cityIds2[w_area][6]["name"]}`,
-                "data": `data=survey2&area=${w_area}&item=6`,
-                "displayText": `${cityIds2[w_area][6]["name"]}`
-              }
-            },
-            {
-              "type": "action",
-              "action": {
-                "type": "postback",
-                "label": `${cityIds2[w_area][7]["name"]}`,
-                "data": `data=survey2&area=${w_area}&item=7`,
-                "displayText": `${cityIds2[w_area][7]["name"]}`
-              }
-            },
-            {
-              "type": "action",
-              "action": {
-                "type": "postback",
-                "label": `${cityIds2[w_area][8]["name"]}`,
-                "data": `data=survey2&area=${w_area}&item=8`,
-                "displayText": `${cityIds2[w_area][8]["name"]}`
-              }
-            },
-            {
-              "type": "action",
-              "action": {
-                "type": "postback",
-                "label": `${cityIds2[w_area][9]["name"]}`,
-                "data": `data=survey2&area=${w_area}&item=9`,
-                "displayText": `${cityIds2[w_area][9]["name"]}`
-              }
-            },
-            {
-              "type": "action",
-              "action": {
-                "type": "postback",
-                "label": `${cityIds2[w_area][10]["name"]}`,
-                "data": `data=survey2&area=${w_area}&item=10`,
-                "displayText": `${cityIds2[w_area][10]["name"]}`
-              }
-            },
-            {
-              "type": "action",
-              "action": {
-                "type": "postback",
-                "label": `${cityIds2[w_area][11]["name"]}`,
-                "data": `data=survey2&area=${w_area}&item=11`,
-                "displayText": `${cityIds2[w_area][11]["name"]}`
-              }
-            },
-            {
-              "type": "action",
-              "action": {
-                "type": "postback",
-                "label": `${cityIds2[w_area][12]["name"]}`,
-                "data": `data=survey2&area=${w_area}&item=12`,
-                "displayText": `${cityIds2[w_area][12]["name"]}`
-              }
-            },
-
-          ]
+          "items": cityArray
         }
       }
       )
