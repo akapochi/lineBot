@@ -465,6 +465,8 @@ async function handleEvent(event) {
           }
         }`)
       }
+      console.log(cityArray);
+
       client.replyMessage(event.replyToken, {
         "type": "text",
         "text": "地名を選んでね",
