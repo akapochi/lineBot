@@ -473,7 +473,7 @@ async function handleEvent(event) {
         "type": "text",
         "text": "地名を選んでね",
         "quickReply": {
-          "items": JSON.stringify(cityArray)
+          "items": JSON.parse(cityArray)
         }
       }
       )
