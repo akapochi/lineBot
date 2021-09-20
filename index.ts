@@ -22,7 +22,14 @@ type AreaInfo = keyof AllPlaceAndId;
 
 let cityIds2: AllPlaceAndId;
 
-const areaArray = Object.keys(cityIds2);
+let areaArray: string[] = [];
+
+fs.readFile('./data.json', 'utf8', (err, data) => {
+  if (err) throw err;
+  cityIds2 = JSON.parse(data);
+  areaArray = Object.keys(cityIds2)
+});
+
 const areaReplyItems: QuickReplyItem[] = areaArray.map(area => {
   return {
     "type": "action",
@@ -35,21 +42,16 @@ const areaReplyItems: QuickReplyItem[] = areaArray.map(area => {
   }
 });
 
-fs.readFile('./data.json', 'utf8', (err, data) => {
-  if (err) throw err;
-  cityIds2 = JSON.parse(data);
-});
+import { QuickReply, QuickReplyItem, Client, middleware, WebhookEvent } from "@line/bot-sdk";
 
-import { QuickReply, QuickReplyItem, Client, middleware } from "@line/bot-sdk";
-
-import express from "express";
+import * as express from "express";
 
 import axios from "axios";
 
 // create LINE SDK config from env variables
 const config = {
-  channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
-  channelSecret: process.env.CHANNEL_SECRET,
+  channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN || "",
+  channelSecret: process.env.CHANNEL_SECRET || "",
 };
 
 // create LINE SDK client
@@ -57,11 +59,11 @@ const client = new Client(config);
 
 // create Express app
 // about Express itself: https://expressjs.com/
-const app = express();
+const app = express.default();
 
 // register a webhook handler with middleware
 // about the middleware, please refer to doc
-app.post("/webhook", middleware(config), (req, res) => {
+app.post("/webhook", middleware(config), (req: express.Request, res: express.Response) => {
   Promise
     .all(req.body.events.map(handleEvent))
     .then((result) => res.json(result))
@@ -72,7 +74,7 @@ app.post("/webhook", middleware(config), (req, res) => {
 });
 
 // event handler
-async function handleEvent(event) {
+async function handleEvent(event: WebhookEvent) {
   if (event.type === "message") {
     return client.replyMessage(event.replyToken, {
       "type": "text",
@@ -84,10 +86,9 @@ async function handleEvent(event) {
     )
   } else if (event.type === "postback") {
     const w_data = event.postback.data.split("&")[0].replace("data=", ""); // 質問の種類を一時格納
-    const w_area: AreaInfo = event.postback.data.split("&")[1].replace("area=", ""); // 地方を一時格納（数字）
+    const w_area: AreaInfo = event.postback.data.split("&")[1].replace("area=", "") as AreaInfo; // 地方を一時格納（数字）
 
     const cityArray = [];
-
 
     if (w_data === "survey1") {
       let i = 0;
