@@ -456,16 +456,16 @@ async function handleEvent(event) {
     if (w_data === "survey1") {
       let i = 0;
       for (const cityObject of cityIds2[w_area]) {
-        const newObj = `{
+        const newObj = {
           "type": "action",
           "action": {
             "type": "postback",
-            "label": \`${cityObject["name"]}\`,
-            "data": \`data=survey2&area=${w_area}&item=${i}\`,
-            "displayText": \`${cityObject["name"]}\`
+            "label": cityObject["name"],
+            "data": `data=survey2&area=${w_area}&item=${i}`,
+            "displayText": cityObject["name"]
           }
-        }`
-        cityArray.push(JSON.parse(newObj));
+        }
+        cityArray.push(newObj);
         i++;
       }
       console.log(cityArray);
