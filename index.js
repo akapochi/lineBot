@@ -456,7 +456,7 @@ async function handleEvent(event) {
     if (w_data === "survey1") {
       let i = 0;
       for (const cityObject of cityIds2[w_area]) {
-        cityArray.push(`{
+        const newObj = `{
           "type": "action",
           "action": {
             "type": "postback",
@@ -464,7 +464,8 @@ async function handleEvent(event) {
             "data": \`data=survey2&area=${w_area}&item=${i}\`,
             "displayText": \`${cityObject["name"]}\`
           }
-        }`)
+        }`
+        cityArray.push(newObj);
         i++;
       }
       console.log(cityArray);
