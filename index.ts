@@ -42,20 +42,26 @@ const areaReplyItems: QuickReplyItem[] = areaArray.map(area => {
   }
 });
 
-import { QuickReply, QuickReplyItem, Client, middleware, WebhookEvent } from "@line/bot-sdk";
+import { QuickReply, QuickReplyItem, Client, middleware, WebhookEvent, ClientConfig, MiddlewareConfig } from "@line/bot-sdk";
 
 import * as express from "express";
 
 import axios from "axios";
 
 // create LINE SDK config from env variables
-const config = {
-  channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN || "",
-  channelSecret: process.env.CHANNEL_SECRET || "",
+const clientConfig: ClientConfig = {
+  channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN || '',
+  channelSecret: process.env.CHANNEL_SECRET,
 };
 
+const middlewareConfig: MiddlewareConfig = {
+  channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
+  channelSecret: process.env.CHANNEL_SECRET || '',
+};
+
+
 // create LINE SDK client
-const client = new Client(config);
+const client = new Client(clientConfig);
 
 // create Express app
 // about Express itself: https://expressjs.com/
@@ -63,8 +69,7 @@ const app = express.default();
 
 // register a webhook handler with middleware
 // about the middleware, please refer to doc
-app.post("/webhook", middleware(config), (req: express.Request, res: express.Response) => {
-  console.log(config);
+app.post("/webhook", middleware(middlewareConfig), (req: express.Request, res: express.Response) => {
   Promise
     .all(req.body.events.map(handleEvent))
     .then((result) => res.json(result))
