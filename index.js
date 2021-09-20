@@ -1,6 +1,6 @@
 "use strict";
 
-import * as fs from 'fs';
+const fs = require("fs");
 
 fs.readFile('./data.json', 'utf8', (err, data) => {
   if (err) throw err;
