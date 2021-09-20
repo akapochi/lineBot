@@ -2,6 +2,8 @@
 
 const fs = require("fs");
 
+let cityIds2;
+
 fs.readFile('./data.json', 'utf8', (err, data) => {
   if (err) throw err;
   cityIds2 = JSON.parse(data);
