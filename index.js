@@ -465,7 +465,7 @@ async function handleEvent(event) {
             "displayText": \`${cityObject["name"]}\`
           }
         }`
-        cityArray.push(newObj);
+        cityArray.push(JSON.parse(newObj));
         i++;
       }
       console.log(cityArray);
