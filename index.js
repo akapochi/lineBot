@@ -61,22 +61,23 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var fs = __importStar(require("fs"));
 var cityIds2;
 var areaArray = [];
+var areaReplyItems = [];
 fs.readFile('./data.json', 'utf8', function (err, data) {
     if (err)
         throw err;
     cityIds2 = JSON.parse(data);
     areaArray = Object.keys(cityIds2);
-});
-var areaReplyItems = areaArray.map(function (area) {
-    return {
-        "type": "action",
-        "action": {
-            "type": "postback",
-            "label": area,
-            "data": "data=survey1&area=" + area,
-            "displayText": area
-        }
-    };
+    areaReplyItems = areaArray.map(function (area) {
+        return {
+            "type": "action",
+            "action": {
+                "type": "postback",
+                "label": area,
+                "data": "data=survey1&area=" + area,
+                "displayText": area
+            }
+        };
+    });
 });
 var bot_sdk_1 = require("@line/bot-sdk");
 var express = __importStar(require("express"));

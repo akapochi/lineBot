@@ -24,23 +24,26 @@ let cityIds2: AllPlaceAndId;
 
 let areaArray: string[] = [];
 
+let areaReplyItems: QuickReplyItem[] = [];
+
 fs.readFile('./data.json', 'utf8', (err, data) => {
   if (err) throw err;
   cityIds2 = JSON.parse(data);
-  areaArray = Object.keys(cityIds2)
+  areaArray = Object.keys(cityIds2);
+
+  areaReplyItems = areaArray.map(area => {
+    return {
+      "type": "action",
+      "action": {
+        "type": "postback",
+        "label": area,
+        "data": `data=survey1&area=${area}`,
+        "displayText": area
+      }
+    }
+  });
 });
 
-const areaReplyItems: QuickReplyItem[] = areaArray.map(area => {
-  return {
-    "type": "action",
-    "action": {
-      "type": "postback",
-      "label": area,
-      "data": `data=survey1&area=${area}`,
-      "displayText": area
-    }
-  }
-});
 
 import { QuickReply, QuickReplyItem, Client, middleware, WebhookEvent, ClientConfig, MiddlewareConfig } from "@line/bot-sdk";
 
