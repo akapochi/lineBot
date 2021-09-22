@@ -117,9 +117,9 @@ function handleEvent(event) {
                     return [2 /*return*/, client.replyMessage(event.replyToken, {
                             "type": "text",
                             "text": "地方を選んでね",
-                            "quickReply": {
-                                "items": areaReplyItems
-                            }
+                            // "quickReply": {
+                            //   "items": areaReplyItems
+                            // }
                         })];
                 case 1:
                     if (!(event.type === "postback")) return [3 /*break*/, 4];

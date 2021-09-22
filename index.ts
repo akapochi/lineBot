@@ -85,9 +85,9 @@ async function handleEvent(event: WebhookEvent): Promise<any> {
     return client.replyMessage(event.replyToken, {
       "type": "text",
       "text": "地方を選んでね",
-      "quickReply": {
-        "items": areaReplyItems
-      }
+      // "quickReply": {
+      //   "items": areaReplyItems
+      // }
     }
     )
   } else if (event.type === "postback") {
