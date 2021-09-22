@@ -80,7 +80,7 @@ app.post("/webhook", middleware(middlewareConfig), (req: express.Request, res: e
 });
 
 // event handler
-async function handleEvent(event: WebhookEvent) {
+async function handleEvent(event: WebhookEvent): Promise<any> {
   if (event.type === "message") {
     return client.replyMessage(event.replyToken, {
       "type": "text",
