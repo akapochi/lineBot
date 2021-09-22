@@ -82,18 +82,22 @@ var bot_sdk_1 = require("@line/bot-sdk");
 var express = __importStar(require("express"));
 var axios_1 = __importDefault(require("axios"));
 // create LINE SDK config from env variables
-var config = {
-    channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN || "",
-    channelSecret: process.env.CHANNEL_SECRET || "",
+var clientConfig = {
+    channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN || '',
+    channelSecret: process.env.CHANNEL_SECRET,
+};
+var middlewareConfig = {
+    channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
+    channelSecret: process.env.CHANNEL_SECRET || '',
 };
 // create LINE SDK client
-var client = new bot_sdk_1.Client(config);
+var client = new bot_sdk_1.Client(clientConfig);
 // create Express app
 // about Express itself: https://expressjs.com/
 var app = express.default();
 // register a webhook handler with middleware
 // about the middleware, please refer to doc
-app.post("/webhook", (0, bot_sdk_1.middleware)(config), function (req, res) {
+app.post("/webhook", (0, bot_sdk_1.middleware)(middlewareConfig), function (req, res) {
     Promise
         .all(req.body.events.map(handleEvent))
         .then(function (result) { return res.json(result); })
