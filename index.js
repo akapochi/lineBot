@@ -165,6 +165,9 @@ function handleEvent(event) {
                     return [2 /*return*/, client.replyMessage(event.replyToken, {
                             "type": "text",
                             "text": replyText,
+                            "quickReply": {
+                                "items": areaReplyItems
+                            }
                         })];
                 case 4: return [2 /*return*/];
             }

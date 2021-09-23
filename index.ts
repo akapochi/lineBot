@@ -154,6 +154,9 @@ async function handleEvent(event: WebhookEvent): Promise<any> {
       return client.replyMessage(event.replyToken, {
         "type": "text",
         "text": replyText,
+        "quickReply": {
+          "items": areaReplyItems
+        }
       });
     }
   }
