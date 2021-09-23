@@ -163,8 +163,8 @@ function handleEvent(event) {
                     description = res.data.description;
                     replyText = description.bodyText;
                     return [2 /*return*/, client.replyMessage(event.replyToken, {
-                            type: "text",
-                            text: replyText,
+                            "type": "text",
+                            "text": replyText,
                         })];
                 case 4: return [2 /*return*/];
             }

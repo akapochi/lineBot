@@ -152,8 +152,8 @@ async function handleEvent(event: WebhookEvent): Promise<any> {
       let description: WeatherInfo = res.data.description;
       const replyText = description.bodyText;
       return client.replyMessage(event.replyToken, {
-        type: "text",
-        text: replyText,
+        "type": "text",
+        "text": replyText,
       });
     }
   }
