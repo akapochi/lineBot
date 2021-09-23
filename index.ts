@@ -2,6 +2,20 @@
 
 import * as fs from "fs";
 
+import {
+  QuickReplyItem,
+  Client,
+  middleware,
+  WebhookEvent,
+  ClientConfig,
+  MiddlewareConfig,
+  QuickReply
+} from "@line/bot-sdk";
+
+import * as express from "express";
+
+import axios from "axios";
+
 type PlaceAndId = {
   "name": string;
   "id": string;
@@ -43,13 +57,6 @@ fs.readFile('./data.json', 'utf8', (err, data) => {
     }
   });
 });
-
-
-import { QuickReply, QuickReplyItem, Client, middleware, WebhookEvent, ClientConfig, MiddlewareConfig } from "@line/bot-sdk";
-
-import * as express from "express";
-
-import axios from "axios";
 
 // create LINE SDK config from env variables
 const clientConfig: ClientConfig = {

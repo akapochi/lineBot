@@ -59,6 +59,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var fs = __importStar(require("fs"));
+var bot_sdk_1 = require("@line/bot-sdk");
+var express = __importStar(require("express"));
+var axios_1 = __importDefault(require("axios"));
 var cityIds2;
 var areaArray = [];
 var areaReplyItems = [];
@@ -79,9 +82,6 @@ fs.readFile('./data.json', 'utf8', function (err, data) {
         };
     });
 });
-var bot_sdk_1 = require("@line/bot-sdk");
-var express = __importStar(require("express"));
-var axios_1 = __importDefault(require("axios"));
 // create LINE SDK config from env variables
 var clientConfig = {
     channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN || '',
