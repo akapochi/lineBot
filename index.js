@@ -60,7 +60,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var fs = __importStar(require("fs"));
 var bot_sdk_1 = require("@line/bot-sdk");
-var express = __importStar(require("express"));
+var express_1 = __importDefault(require("express"));
 var axios_1 = __importDefault(require("axios"));
 var cityIds2;
 var areaArray = [];
@@ -95,7 +95,7 @@ var middlewareConfig = {
 var client = new bot_sdk_1.Client(clientConfig);
 // create Express app
 // about Express itself: https://expressjs.com/
-var app = express.default();
+var app = (0, express_1.default)();
 // register a webhook handler with middleware
 // about the middleware, please refer to doc
 app.post("/webhook", (0, bot_sdk_1.middleware)(middlewareConfig), function (req, res) {

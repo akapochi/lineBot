@@ -9,10 +9,9 @@ import {
   WebhookEvent,
   ClientConfig,
   MiddlewareConfig,
-  QuickReply
 } from "@line/bot-sdk";
 
-import * as express from "express";
+import express from "express";
 
 import axios from "axios";
 
@@ -75,7 +74,7 @@ const client = new Client(clientConfig);
 
 // create Express app
 // about Express itself: https://expressjs.com/
-const app = express.default();
+const app = express();
 
 // register a webhook handler with middleware
 // about the middleware, please refer to doc
